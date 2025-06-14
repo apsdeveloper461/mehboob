@@ -899,6 +899,7 @@
     const ShowServicePopup = (id) => {
       console.log(id);
       document.querySelector("#service-popup").style.display = "block";
+      document.querySelector("#service-popup").style.paddingTop = "80px";
       const services = {
         S0: {
           title: "Figma to React/Next.js Conversion",
@@ -994,6 +995,7 @@
 
     const closeServicePopup = () => {
       document.querySelector("#service-popup").style.display = "none";
+      document.querySelector("#service-popup").style.paddingTop = "0px";
       const serviceWrapper = document.querySelector("#service-wrapper-popup");
       serviceWrapper.innerHTML = "";
     };

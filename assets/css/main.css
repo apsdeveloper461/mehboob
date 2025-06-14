@@ -64,7 +64,7 @@ Description: Gerold - Personal Portfolio HTML5 Template
   --tj-grey-3: #dddddd;
   --tj-grey-4: #22272c;
   /* ----------------------------------
-   @font weight declaration
+    @font weight declaration
   ------------------------------------ */
   --tj-fw-normal: normal;
   --tj-fw-elight: 200;
@@ -3429,7 +3429,6 @@ body.absolute_header .breadcrumb_area {
   width: 100vw;
 
   z-index: 10000;
-  padding-top: 80px;
   transition: background 0.3s;
 }
 
