@@ -48,6 +48,46 @@
             });
     }
 
+    // Helper: Extract YouTube video ID from URL
+    function getYouTubeId(url) {
+        if (!url) return null;
+        const match = url.match(
+            /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/
+        );
+        return match ? match[1] : null;
+    }
+
+    // Generate YouTube preview HTML
+    function generateYouTubePreview(videoUrl) {
+        const videoId = getYouTubeId(videoUrl);
+        if (!videoId) return '';
+        const thumbnail = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        const embedUrl = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+        // Unique id for this preview
+        const previewId = 'yt-preview-' + Math.random().toString(36).substr(2, 9);
+        return `
+            <div class="youtube-preview" style="margin-top:24px;">
+                <div id="${previewId}-container" style="position:relative;display:inline-block;cursor:pointer;max-width:480px;">
+                    <img src="${thumbnail}" alt="YouTube Preview" style="width:100%;max-width:480px;display:block;border-radius:8px;">
+                    <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:48px;color:white;text-shadow:0 2px 8px #000;">&#9658;</div>
+                </div>
+                <div style="margin-top:8px;">
+                    <a href="${videoUrl}" target="_blank" rel="noopener noreferrer">View on YouTube</a>
+                </div>
+                <script>
+                (function(){
+                    var loaded = false;
+                    document.getElementById('${previewId}-container').onclick = function() {
+                        if(loaded) return;
+                        loaded = true;
+                        this.innerHTML = '<iframe width="480" height="270" src="${embedUrl}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen title="YouTube Video"></iframe>';
+                    };
+                })();
+                </script>
+            </div>
+        `;
+    }
+
     // Generate portfolio popup content with theme-consistent design
     function generatePortfolioPopup(item) {
         const techList = item.tech ? item.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('') : '';
@@ -63,7 +103,6 @@
                 <div class="popup_header">
                     <div class="popup_modal_img">
                         <img src="${'assets/img/portfolio/'+item.thumbnail || createFallbackImage(item.title, getColorForCategory(item.primaryCategory))}" alt="${item.title}" />
-                       
                     </div>
                 </div>
                 
@@ -89,12 +128,8 @@
                                 ${item.repoLink ? `<a href="${item.repoLink}" target="_blank" class="tj-btn-secondary">
                                     View Code
                                 </a>` : ''}
-                               
                             </div>
                         </div>
-                        
-                       
-                            
                     </div>
                     
                     ${item.features && item.features.length > 0 ? `
@@ -120,10 +155,9 @@
                             Project Demo
                         </h3>
                         <p>Watch the live demonstration of this project to see all features in action.</p>
-                        <a href="${item.video}" target="_blank" class="tj-btn-outline">
-                            Watch Full Demo
-                        </a>
+                        
                     </div>
+                    ${generateYouTubePreview(item.video)}
                     ` : ''}
                 </div>
             </div>
@@ -257,7 +291,7 @@
                 <div class="portfolio-item ${categoryClasses}">
                     <div class="image-box">
                         <img src="${imageSrc}" alt="${item.title}">
-                        <div class="category-badge">${primaryCategoryName}</div>
+                       
                         
                     </div>
                     <div class="content-box">
@@ -267,7 +301,7 @@
                         <div class="portfolio-meta">
                          <div class="portfolio-categories">
                             ${Array.isArray(item.categoryNames) 
-                                ? item.categoryNames.slice(0, 2).map(cat => `<span class="category-tag">${cat}</span>`).join('') 
+                                ? item.categoryNames.slice(0, 2).map(cat => `<span class="category-tag">${cat}</span>`).join(', ') 
                                 : `<span class="category-tag">${primaryCategoryName}</span>`
                             }
                         </div>

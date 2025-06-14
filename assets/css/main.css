@@ -1230,6 +1230,7 @@ body.loaded {
   text-transform: capitalize;
   font-size: 15px;
   line-height: 1;
+  height: fit-content;
   padding: 12px 25px;
   border-radius: 50px;
   z-index: 10;
@@ -1245,6 +1246,7 @@ body.loaded {
   left: 0px;
   right: 0px;
   position: absolute;
+  
   z-index: 1;
   background: var(--tj-theme-primary);
   background: -o-linear-gradient(
@@ -1260,6 +1262,12 @@ body.loaded {
   -webkit-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+}
+@media  screen and (max-width: 900px) {
+  .portfolio-filter{
+    display: none;
+  }
+  
 }
 .portfolio-box {
   padding-top: 50px;
@@ -3772,3 +3780,64 @@ body.absolute_header .breadcrumb_area {
   gap: 6px;
   justify-content: center;
 }
+
+/* ===============================
+*  START: YouTube Preview in Portfolio Popup
+* =============================== */
+.youtube-preview {
+  margin: 5px 0 12px 0;
+  text-align: center;
+}
+.youtube-preview img {
+  width: 100%;
+  max-width: 90%;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px 0 rgba(135, 80, 247, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+}
+.youtube-preview img:hover {
+  box-shadow: 0 4px 32px 0 rgba(135, 80, 247, 0.18);
+}
+.youtube-preview .youtube-play-btn,
+.youtube-preview div[style*="font-size:48px"] {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: #fff;
+  text-shadow: 0 2px 8px #000;
+  pointer-events: none;
+  user-select: none;
+}
+.youtube-preview iframe {
+  width: 400px;
+  height: 250px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 2px 16px 0 rgba(135, 80, 247, 0.1);
+}
+.youtube-preview a {
+  color: var(--tj-theme-primary, #8750f7);
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 15px;
+  margin-top: 8px;
+  display: inline-block;
+}
+.youtube-preview a:hover {
+  color: var(--tj-theme-secondary, #2a1454);
+}
+
+/* Responsive for small screens */
+@media (max-width: 600px) {
+  .youtube-preview img,
+  .youtube-preview iframe {
+    max-width: 98vw;
+    height: 180px;
+  }
+}
+/* ===============================
+*  END: YouTube Preview in Portfolio Popup
+* =============================== */
