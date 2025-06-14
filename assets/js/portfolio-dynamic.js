@@ -298,26 +298,19 @@
                     <div class="image-box">
                         <img src="${imageSrc}" alt="${item.title}">
                         <div class="category-badge">${primaryCategoryName}</div>
-                        <div class="portfolio-overlay">
-                            <div class="overlay-content">
-                                <h4>${item.title}</h4>
-                                <p>${primaryCategoryName}</p>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="content-box">
                         <h4 class="portfolio-title">${item.title}</h4>
-                        <p>${item.description.length > 100 ? item.description.substring(0, 100) + '...' : item.description}</p>
-                        <div class="portfolio-categories">
+                       
+                        
+                        <div class="portfolio-meta">
+                         <div class="portfolio-categories">
                             ${Array.isArray(item.categoryNames) 
                                 ? item.categoryNames.slice(0, 2).map(cat => `<span class="category-tag">${cat}</span>`).join('') 
                                 : `<span class="category-tag">${primaryCategoryName}</span>`
                             }
                         </div>
-                        <div class="portfolio-meta">
-                            <div class="tech-count">
-                                <i class="fas fa-code"></i> ${item.tech ? item.tech.length : 0} Technologies
-                            </div>
                             <button class="portfolio-link modal-popup" data-portfolio-id="${item.id}">
                                 <i class="fas fa-eye"></i>
                             </button>

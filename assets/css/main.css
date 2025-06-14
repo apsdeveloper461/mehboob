@@ -1351,7 +1351,7 @@ body.loaded {
   transform: translateY(0);
 }
 .portfolio-box .portfolio-item .content-box .portfolio-title {
-  font-size: 30px;
+  font-size: 20px;
 }
 .portfolio-box .portfolio-item .content-box p {
   margin-bottom: 0;
@@ -3556,3 +3556,194 @@ body.absolute_header .breadcrumb_area {
 /* ===============================
 *  END: Service Popup Modal
 * =============================== */
+
+/* ===============================
+*  START: Dynamic Portfolio Styling
+* =============================== */
+
+/* Loading Spinner and Loading Box */
+.portfolio-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 180px;
+  background: transparent;
+  color: var(--tj-theme-primary);
+  font-size: 18px;
+  font-weight: 500;
+  z-index: 2;
+}
+
+.portfolio-loading .spinner-border {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-width: 0.3em;
+  margin-bottom: 12px;
+  color: var(--tj-theme-primary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Category Badge on Portfolio Card */
+.category-badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--tj-theme-primary);
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-weight: 600;
+  z-index: 2;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px 0 rgba(135,80,247,0.08);
+}
+
+/* Category Tag (in card meta) */
+.category-tag {
+  display: inline-block;
+  background: var(--tj-theme-secondary);
+  color: var(--tj-theme-primary);
+  font-size: 13px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, color 0.2s;
+}
+.category-tag:last-child {
+  margin-right: 0;
+}
+.portfolio-categories {
+  margin-top: 10px;
+}
+
+/* Tech Tag (used for technologies and categories in popup) */
+.tech-tag {
+  display: inline-block;
+  background: var(--tj-grey-2);
+  color: var(--tj-theme-primary);
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 18px;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  transition: background 0.2s, color 0.2s;
+}
+.tech-tag:last-child {
+  margin-right: 0;
+}
+
+/* Category badge in popup */
+.category-badge-popup {
+  display: inline-block;
+  background: var(--tj-theme-primary);
+  color: #fff;
+  font-size: 13px;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-right: 6px;
+  margin-bottom: 4px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+.category-badge-popup:last-child {
+  margin-right: 0;
+}
+
+/* Category info tag in popup info */
+.category-info-tag {
+  background: var(--tj-theme-secondary);
+  color: var(--tj-theme-primary);
+}
+
+/* Features List in Popup */
+.features-list {
+  margin: 0 0 0 18px;
+  padding: 0;
+  list-style: disc inside;
+  color: var(--tj-theme-accent-1);
+  font-size: 15px;
+}
+.features-list li {
+  margin-bottom: 6px;
+  line-height: 1.6;
+}
+.features-list li:last-child {
+  margin-bottom: 0;
+}
+
+/* Tech Grid in Popup */
+.tech-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+.tech-item {
+  background: var(--tj-grey-2);
+  color: var(--tj-theme-primary);
+  border-radius: 16px;
+  padding: 6px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 4px;
+  letter-spacing: 0.01em;
+}
+
+/* Portfolio Features, Technologies, Demo in Popup */
+.portfolio_features,
+.portfolio_technologies,
+.portfolio_demo {
+  margin-top: 32px;
+  margin-bottom: 0;
+  background: #f7f7fa;
+  border-radius: 12px;
+  padding: 24px 24px 18px 24px;
+  box-shadow: 0 2px 12px 0 rgba(135,80,247,0.04);
+}
+.portfolio_features .title,
+.portfolio_technologies .title,
+.portfolio_demo .title {
+  color: var(--tj-theme-primary);
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.portfolio_demo p {
+  color: var(--tj-theme-accent-1);
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.portfolio_demo .tj-btn-outline {
+  margin-top: 8px;
+}
+
+/* Overlay on image in popup */
+.project-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(135,80,247,0.18) 0%, rgba(0,0,0,0) 100%);
+  padding: 12px 0 0 0;
+  z-index: 2;
+}
+.project-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+}
+
