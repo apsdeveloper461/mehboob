@@ -1,0 +1,174 @@
+{
+  "portfolio": [
+    {
+      "id": "p1",
+      "title": "CaptionCrafter",
+      "description": "An AI-powered caption generator that helps users create engaging captions tailored to their tone and social media platform.",
+      "tech": [
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "Firebase",
+        "Gemini AI"
+      ],
+      "video": "https://www.youtube.com/watch?v=N1JTC3zveLI",
+      "liveLink": "https://captions-crafter.vercel.app/",
+      "repoLink": "https://github.com/apsdeveloper461/caption-crafter-landing-page",
+      "features": [
+        "AI-generated captions based on user input",
+        "Tone customization (e.g. professional, casual)",
+        "Platform-specific optimization (Instagram, LinkedIn, etc.)",
+        "Optional hashtag generation",
+        "Save and manage previously created captions",
+        "Fast and responsive UI with Tailwind CSS"
+      ],
+      "role": "Developed full-stack features including AI integration with Gemini, backend using Express.js and Firebase for data storage, and a dynamic frontend with Next.js and Tailwind.",
+      "categories": [
+        "full-stack-app",
+        "ai-integration",
+        "firebase-integration"
+      ],
+      "categoryNames": [
+        "Full Stack App",
+        "AI Integration",
+        "Firebase Integration"
+      ],
+      "primaryCategory": "full-stack-app",
+      "thumbnail": "captioncrafter-thumb.jpg"
+    },
+    {
+      "id": "p2",
+      "title": "UET Routes Management System",
+      "description": "A transport and route management platform for university students, drivers, and admins.",
+      "tech": [
+        "React.js",
+        "Tailwind CSS",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Socket.io",
+        "GoMap"
+      ],
+      "video": "https://www.youtube.com/watch?v=NXba6-kYukI",
+      "liveLink": "https://uet-rms-final.vercel.app/",
+      "repoLink": "https://github.com/apsdeveloper461/uet-rms-final",
+      "features": [
+        "Role-based system: Student, Driver, Admin",
+        "Live bus location tracking with GoMap and sockets",
+        "Complaint management system",
+        "Chat functionality between roles",
+        "Admin control for managing drivers, buses, routes, stops",
+        "Student profile and saved routes management"
+      ],
+      "role": "Developed the backend logic, location tracking services, and API integration with GoMap.",
+      "categories": ["full-stack-app"],
+      "categoryNames": ["Full Stack App"],
+      "primaryCategory": "full-stack-app",
+      "thumbnail": "uetrms-thumb.jpg"
+    },
+    {
+      "id": "p3",
+      "title": "NOxVote",
+      "description": "A decentralized voting system where users create voting pools and others vote before expiration.",
+      "tech": [
+        "React.js",
+        "Firebase",
+        "Flask",
+        "Python",
+        "Blockchain",
+        "Tailwind CSS"
+      ],
+      "video": "https://www.youtube.com/watch?v=EFYD3inXdS0",
+      "repoLink": "https://github.com/mabdullahferoz/NoxVote-Frontend",
+      "features": [
+        "User-created voting pools",
+        "Voting before expiration date",
+        "Blockchain-backed secure voting",
+        "Real-time updates with Firebase",
+        "Clean and responsive frontend UI"
+      ],
+      "role": "Developed the frontend with React.js, integrating with Flask backend and blockchain for secure voting.",
+      "categories": ["full-stack-app", "firebase-integration"],
+      "categoryNames": ["Full Stack App", "Firebase Integration"],
+      "primaryCategory": "full-stack-app",
+      "thumbnail": "noxVote-thumb.jpg"
+    },
+    {
+      "id": "p4",
+      "title": "Landing Page for Designer",
+      "description": "A stylish landing page designed to showcase a designer's portfolio for web and mobile applications.",
+      "tech": ["Next.js", "Tailwind CSS", "Framer Motion"],
+      "video": "https://www.youtube.com/watch?v=JUDBku8bLAA",
+      "features": [
+        "Responsive and clean design",
+        "Smooth animations with Framer Motion",
+        "Portfolio sections for skills and projects using dummy data",
+        "Ideal for web and mobile app designers"
+      ],
+      "role": "Developed the full frontend using Next.js, Tailwind CSS, and Framer Motion for animations.",
+      "categories": ["only-frontend"],
+      "categoryNames": ["Only Frontend"],
+      "primaryCategory": "only-frontend",
+      "thumbnail": "designerpotfolio-thumb.png"
+    },
+    {
+      "id": "p5",
+      "title": "Event Management System",
+      "description": "A fully built event management system developed individually. Features event ledger, customer account management.",
+      "tech": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS",
+        "Framer Motion"
+      ],
+      "video": "https://www.youtube.com/watch?v=aF_I43yWNxI",
+      "liveLink": "https://adorner.vercel.app/",
+      "repoLink": "https://github.com/apsdeveloper461/adorners-event-management-system",
+      "features": [
+        "Event creation and management",
+        "Customer ledger handling",
+        "Stock item inventory management",
+        "Admin dashboard with full control",
+        "Responsive design with smooth animations"
+      ],
+      "role": "Built the full-stack app individually, managing frontend, backend, database, and UI animations.",
+      "categories": ["full-stack-app"],
+      "categoryNames": ["Full Stack App"],
+      "primaryCategory": "full-stack-app",
+      "thumbnail": "ems-thumb.jpg"
+    },
+    {
+      "id": "p6",
+      "title": "Medical Store Management System",
+      "description": "A full-stack web application for managing a medical store's inventory. Built using the MERN stack.",
+      "tech": [
+        "MongoDB",
+        "Express.js",
+        "React.js",
+        "Node.js",
+        "Tailwind CSS",
+        "Chart.js"
+      ],
+      "video": "https://www.youtube.com/watch?v=dxJYSqHfGe0",
+      "liveLink": "https://medical-store-mern-app.vercel.app/",
+      "repoLink": "https://github.com/apsdeveloper461/MEDICAL_STORE_MERN_APP",
+      "features": [
+        "Add and update medical products",
+        "Stock quantity management",
+        "Comprehensive stock logs",
+        "Real-time tracking of inventory",
+        "Analytics dashboard with graphs",
+        "Advanced product search",
+        "Secure and reliable system"
+      ],
+      "role": "Individually developed the complete full-stack web application using MERN stack.",
+      "categories": ["full-stack-app"],
+      "categoryNames": ["Full Stack App"],
+      "primaryCategory": "full-stack-app",
+      "thumbnail": "medical-thumb.png"
+    }
+  ]
+}

@@ -132,24 +132,34 @@ Description: Gerold - Personal Portfolio HTML5 Template
 		/*------------------------------------------------------
   	/  Portfolio Filter
   	/------------------------------------------------------*/
-		var $grid = $(".portfolio-box").isotope({
-			// options
-			masonry: {
-				columnWidth: ".portfolio-box .portfolio-sizer",
-				gutter: ".portfolio-box .gutter-sizer",
-			},
-			itemSelector: ".portfolio-box .portfolio-item",
-			percentPosition: true,
-		});
+		// Initialize Isotope after portfolio data is loaded
+		function initPortfolioIsotope() {
+			var $grid = $(".portfolio-box").isotope({
+				// options
+				masonry: {
+					columnWidth: ".portfolio-box .portfolio-sizer",
+					gutter: ".portfolio-box .gutter-sizer",
+				},
+				itemSelector: ".portfolio-box .portfolio-item",
+				percentPosition: true,
+			});
 
-		// filter items on button click
-		$(".filter-button-group").on("click", "button", function () {
-			$(".filter-button-group button").removeClass("active");
-			$(this).addClass("active");
+			// filter items on button click
+			$(".filter-button-group").on("click", "button", function () {
+				$(".filter-button-group button").removeClass("active");
+				$(this).addClass("active");
 
-			var filterValue = $(this).attr("data-filter");
-			$grid.isotope({ filter: filterValue });
-		});
+				var filterValue = $(this).attr("data-filter");
+				$grid.isotope({ filter: filterValue });
+			});
+
+			return $grid;
+		}
+
+		// Wait for portfolio data to load, then initialize Isotope
+		setTimeout(function() {
+			initPortfolioIsotope();
+		}, 1000);
 
 		/*------------------------------------------------------
   	/  Portfolio Gallery Carousel
@@ -251,16 +261,23 @@ Description: Gerold - Personal Portfolio HTML5 Template
 			});
 		}
 
-		$(".modal-popup").magnificPopup({
-			type: "inline",
-			fixedContentPos: false,
-			fixedBgPos: true,
-			overflowY: "auto",
-			closeBtnInside: true,
-			preloader: false,
-			midClick: true,
-			removalDelay: 300,
-			mainClass: "popup-mfp",
+		// Updated popup functionality for dynamic portfolio
+		$(document).on('click', '.modal-popup:not([data-portfolio-id])', function(e) {
+			e.preventDefault();
+			$.magnificPopup.open({
+				items: {
+					src: $(this).attr('href') || $(this).data('target'),
+					type: 'inline'
+				},
+				fixedContentPos: false,
+				fixedBgPos: true,
+				overflowY: 'auto',
+				closeBtnInside: true,
+				preloader: false,
+				midClick: true,
+				removalDelay: 300,
+				mainClass: 'popup-mfp'
+			});
 		});
 	});
 
