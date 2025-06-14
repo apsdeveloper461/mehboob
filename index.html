@@ -344,8 +344,7 @@
     <!-- SERVICES SECTION END -->
 
     <!-- start: Service Popup -->
-    <div id="service-popup" style="max-height:100%; min-width: 100vw;
-      position: fixed; z-index: 100; top: 0px; padding-top: 100px; overflow-y: scroll; display: none;">
+    <div id="service-popup">
       <div id="service-wrapper-popup" class="popup_content_area  zoom-anim-dialog  "></div>
     </div>
     <!-- end: Service Popup -->
@@ -956,29 +955,24 @@
       };
       const serviceWrapper = document.querySelector("#service-wrapper-popup");
       serviceWrapper.innerHTML = `
-  <div class="popup_modal_content" style="border-radius:10px" >
-   <button title="Close" class="btn tj-btn-primary" style="position:absolute; top:-40px; right:-40px; padding:13px 15px; border-radius:50%; transform:rotate(90deg);" onclick="closeServicePopup()">
-  <i class="fa-solid fa-xmark"></i>
-</button>
- 
-  <div class="service_details">
-    <div class="row">
-      <div class="col-lg-7 col-xl-8">
+  <div class="popup_modal_content" style="border-radius:10px; position:relative;">
+    <button title="Close" class="btn tj-btn-primary" style="position:fixed; top:45px; right:35px; width:35px; height:35px; border-radius:50%; z-index:100; transform:rotate(45deg)" onclick="closeServicePopup()">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="service_details">
+      <div class="row">
         <div class="service_details_content">
           <div class="service_info">
             <h6 class="subtitle">SERVICES</h6>
             <h2 class="title">${services[id].title}</h2>
             <div class="desc">
-
               <p>
-          ${services[id].description}
+                ${services[id].description}
               </p>
-
               <p>
-             ${services[id].details}
+                ${services[id].details}
               </p>
             </div>
-
             <h3 class="title">Services Process</h3>
             <div class="desc">
               <p>
@@ -989,59 +983,12 @@
               ${services[id].process
           .map((item) => `<li>${item}</li>`)
           .join("")}
-             
             </ul>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-5 col-xl-4">
-        <div class="tj_main_sidebar">
-       
-
-          <div class="sidebar_widget contact_form">
-            <div class="widget_title">
-              <h3 class="title">Get in Touch</h3>
-            </div>
-
-            <form action="index.html">
-              <div class="form_group">
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  placeholder="Name"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="form_group">
-                <input
-                  type="email"
-                  name="semail"
-                  id="semail"
-                  placeholder="Email"
-                  autocomplete="off"
-                />
-              </div>
-              <div class="form_group">
-                <textarea
-                  name="smessage"
-                  id="smessage"
-                  placeholder="Your message"
-                  autocomplete="off"
-                ></textarea>
-              </div>
-              <div class="form_btn">
-                <button class="btn tj-btn-primary" type="submit">
-                  Send Message
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 `;
     };
 
@@ -1080,10 +1027,10 @@
   <!-- Error handling script -->
   <script>
     // Handle missing images gracefully
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const images = document.querySelectorAll('img');
       images.forEach(img => {
-        img.addEventListener('error', function() {
+        img.addEventListener('error', function () {
           this.style.display = 'none';
           console.warn('Image failed to load:', this.src);
         });
