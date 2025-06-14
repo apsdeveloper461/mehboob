@@ -985,6 +985,7 @@ body.loaded {
   -webkit-transition: 0.3s;
   -o-transition: 0.3s;
   transition: 0.3s;
+  box-shadow: 0 8px 40px 0 rgba(0,0,0,0.55), 0 2px 8px 0 rgba(0,0,0,0.25);
 }
 
 .hero-image-box img:hover {
@@ -1886,7 +1887,6 @@ body.loaded {
   margin-bottom: 0;
 }
 /*  END: Skills Section */
-
 /*
 * ===============================
 *  START: Testimonials Section
