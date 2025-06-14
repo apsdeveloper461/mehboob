@@ -62,19 +62,12 @@
             <div class="popup_content_area">
                 <div class="popup_header">
                     <div class="popup_modal_img">
-                        <img src="${item.thumbnail || createFallbackImage(item.title, getColorForCategory(item.primaryCategory))}" alt="${item.title}">
-                        <div class="project-overlay">
-                            <div class="project-categories">
-                                ${Array.isArray(item.categoryNames) 
-                                    ? item.categoryNames.map(cat => `<span class="category-badge-popup">${cat}</span>`).join('') 
-                                    : `<span class="category-badge-popup">${categoryDisplay}</span>`
-                                }
-                            </div>
-                        </div>
+                        <img src="${'assets/img/portfolio/'+item.thumbnail || createFallbackImage(item.title, getColorForCategory(item.primaryCategory))}" alt="${item.title}" />
+                       
                     </div>
                 </div>
                 
-                <div class="popup_modal_content">
+                <div class="popup_modal_content" style="margin-top: 20px;">
                     <div class="portfolio_info">
                         <div class="portfolio_info_text">
                             <h2 class="title">${item.title}</h2>
@@ -83,7 +76,7 @@
                             </div>
                             
                             ${item.role ? `
-                            <div class="project-role">
+                            <div class="project-role" style="margin-top: 10px;">
                                 <h4><i class="flaticon-user"></i> My Role</h4>
                                 <p>${item.role}</p>
                             </div>
@@ -96,45 +89,12 @@
                                 ${item.repoLink ? `<a href="${item.repoLink}" target="_blank" class="tj-btn-secondary">
                                     View Code
                                 </a>` : ''}
-                                ${item.video ? `<a href="${item.video}" target="_blank" class="tj-btn-outline">
-                                    Watch Demo
-                                </a>` : ''}
+                               
                             </div>
                         </div>
                         
-                        <div class="portfolio_info_items">
-                            <div class="info_item">
-                                <span class="key"><i class="flaticon-tag"></i> Categories:</span>
-                                <span class="value">
-                                    ${Array.isArray(item.categoryNames) 
-                                        ? item.categoryNames.map(cat => `<span class="tech-tag category-info-tag">${cat}</span>`).join('') 
-                                        : `<span class="tech-tag category-info-tag">${categoryDisplay}</span>`
-                                    }
-                                </span>
-                            </div>
-                            <div class="info_item">
-                                <span class="key"><i class="flaticon-code"></i> Technologies:</span>
-                                <span class="value">
-                                    ${item.tech ? item.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('') : 'No technologies specified'}
-                                </span>
-                            </div>
-                            <div class="info_item">
-                                <span class="key"><i class="flaticon-id-card"></i> Project ID:</span>
-                                <span class="value">${item.id}</span>
-                            </div>
-                            ${item.liveLink ? `
-                            <div class="info_item">
-                                <span class="key"><i class="flaticon-globe"></i> Live URL:</span>
-                                <span class="value"><a href="${item.liveLink}" target="_blank">${item.liveLink}</a></span>
-                            </div>
-                            ` : ''}
-                            ${item.repoLink ? `
-                            <div class="info_item">
-                                <span class="key"><i class="flaticon-github"></i> Repository:</span>
-                                <span class="value"><a href="${item.repoLink}" target="_blank">View on GitHub</a></span>
-                            </div>
-                            ` : ''}
-                        </div>
+                       
+                            
                     </div>
                     
                     ${item.features && item.features.length > 0 ? `
@@ -375,11 +335,15 @@
         if (!item) return;
 
         currentPortfolioItem = item;
-        const popupContent = generatePortfolioPopup(item);
-        
+        const popupContent = `
+            <div class="portfolio-theme-popup">
+                ${generatePortfolioPopup(item)}
+            </div>
+        `;
+
         // Create modal popup
-        const modalHtml = `<div id="portfolio-popup-${item.id}" class="mfp-hide">${popupContent}</div>`;
-        
+        const modalHtml = `<div id="portfolio-popup-${item.id}" >${popupContent}</div>`;
+
         // Remove existing modal if any
         $(`#portfolio-popup-${item.id}`).remove();
         $('body').append(modalHtml);
@@ -397,7 +361,7 @@
             preloader: false,
             midClick: true,
             removalDelay: 300,
-            mainClass: 'popup-mfp',
+            mainClass: 'popup-mfp portfolio-theme-popup-mfp',
             callbacks: {
                 open: function() {
                     // Handle image errors in popup
