@@ -597,7 +597,7 @@
               </div>
 
               <div class="tj-contact-form">
-                <form action="index.html">
+                <form id="contactForm" >
                   <div class="row gx-3">
                     <div class="col-sm-6">
                       <div class="form_group">
@@ -625,17 +625,20 @@
                           <option value="" selected disabled>
                             Choose Service
                           </option>
-                          <option value="figma-to-code">
+                          <option value="Figma to Code Conversion">
                             Figma to Code Conversion
                           </option>
-                          <option value="ai-powered-developement">
+                          <option value="AI-Powered Web Development">
                             AI-Powered Web Development
                           </option>
-                          <option value="full-stack-developement">
+                          <option value="Full-Stack Web Development">
                             Full-Stack Web Development
                           </option>
-                          <option value="ai-powered-solutions">
-                            AI-Powered Solutions Expert
+                          <option value="Custom API & Web Solutions">
+                            Custom API & Web Solutions
+                          </option>
+                          <option value="Web Redesign and Optimization">
+                            Web Redesign and Optimization
                           </option>
                         </select>
                       </div>
@@ -644,6 +647,9 @@
                       <div class="form_group">
                         <textarea name="message" id="message" placeholder="Message"></textarea>
                       </div>
+                    </div>
+                    <div class="col-12">
+                       <div id="status" style="color: rgb(146, 8, 8); padding-bottom: 15px;"></div>
                     </div>
                     <div class="col-12">
                       <div class="form_btn">
@@ -681,11 +687,20 @@
                 </li>
                 <li class="d-flex flex-wrap align-items-center position-relative wow fadeInRight" data-wow-delay=".6s">
                   <div class="icon-box">
-                    <i class="flaticon-location"></i>
+                    <i class="fa-brands fa-linkedin-in"></i>
                   </div>
                   <div class="text-box">
-                    <p>Address</p>
-                    <a href="#">University of Engineering and Technology, <br />Lahore , Pakistan</a>
+                    <p>Linkedin</p>
+                    <a target="_blank" href="https://www.linkedin.com/in/mehboob-alam-3999822b3/">in/mehboob-alam</a>
+                  </div>
+                </li>
+                <li class="d-flex flex-wrap align-items-center position-relative wow fadeInRight" data-wow-delay=".8s">
+                  <div class="icon-box">
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+                  <div class="text-box">
+                    <p>Github</p>
+                    <a target="_blank" href="https://github.com/apsdeveloper461">github/apsdeveloper461</a>
                   </div>
                 </li>
               </ul>
@@ -854,6 +869,8 @@
   <script src="assets/js/isotope.pkgd.min.js"></script>
   <script src="assets/js/odometer.min.js"></script>
   <script src="assets/js/magnific-popup.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3.11.0/dist/email.min.js"></script>
+  <script src="assets/js/send-email.js"></script>
 
   <!-- Load portfolio dynamic script after jQuery -->
   <script src="assets/js/portfolio-dynamic.js"></script>
